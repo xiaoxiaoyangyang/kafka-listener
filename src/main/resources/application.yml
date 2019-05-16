@@ -1,0 +1,31 @@
+
+server:
+  servlet:
+    context-path: /senseguard-opendoor
+  port: 8080
+spring:
+  application:
+    name: kafka-listener
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:9092/test?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: f61qWnS74mAtEAvybcC3S+hdYhlQRvaBvKCTN8DJy5OW+gxV2NIwOgPubmHxxk+IdXCPKF7o34YAmkOpvvUJtTYJRS6C4q0uASQ9wZdEPu7//7UUZ9rnZRwvhDU+JZ/JNOz1Qhw4MW0Yfi1OsybCREXbp6UG7rkfDYDJ2vYy3M99QEgxgUaa18aqY38ih6qcI7GuIqDr+7YKcmfe5KYAyz9jj82FbYyj79BF31lI+hqJ5CVbzarpQUH1dkvboVWQkug8gOdW/tzJIUp49gHH8RcO3QB79dbxAPAL4YdSd8SBYec0JxZFyfYR79vQCUbkRP7tmt+Ydwat3MIC0mQYyw==
+    private-key: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCpJK3qZ5wCIq4KnACetWgI6O4N6a1pZkHdmWaPHjekvHwB1OtgJM0dTIdoOuBXeYM6bX9GEyXtXavImUKzuRHBX1hgBR6UdwUYmwREfqPOhiVV98T5hTx4vqJYAkNm63JeetxnP4/kEERl/H9VIvkJSogSNSEwDqWzLUsYEH0WAgLU0TA/mi7jTaphH79AAkxyJskgKmU727+JMc8/adxICVmRMv5T6EaewII3AUAEkW76iYRHgJVPiGEZV2Mv6ivD+058XEX1yhiSW/ldZ6g3b8bp0f0osfPnRvlgiLtfqj8bDVatikunx/PcOexmt/22dUq/3D/bhH85lq8PTz1jAgMBAAECggEBAIkojT8/tWql5KwFxRrtz+cpu6DclRqbKV4hPuFfh4+2qHhzyEq2jP3tSQBkffdxOdDvaf3RGThadSq93TEQKi28u1Vh0WJjAWbqjZNdfkfC0BPeT4RnXporPEpRy4Zx9tRWnNO831n5Nv3cuwS2z2uRXLYnDzqBJi0d1X82H7jvpFpdxykVT9VwNdplnbMpAYKnYP3fl4lfUBiV3YOF6lGe1leVOWp89VsOFAVSV/X0yrx0YPWpxTqIQbBKR8vxPPK4R3HfFtPbU4lsr8qHMd4sER3JTdw9n2df5zvVOwitMva/dRYe5VEgb7VYIVrqLBI5lpo6gt9WGpjotb/wfsECgYEA7DDw+qLlfXxuIEZ1cezK/zUvaR2buOJeUpCQaR5HfWSnEJTPg+7Dn/ox6bsmT/mQwWhDp0OrsZPc7WMAog097QkbIhZlIL4FocmSqPcJNEaFNLoOCPpRDVjoGKxFQFCb2Y87h03dl8DCWAM5HPKIknWUfIYz4QCYh0c1WP9b9J0CgYEAt1Q1wPd6HNRHazk/K1T0132Wl3BsRbiub/pCQr726VprJhRDpFMTxcfNOO9H5PFkLTzhLdr4LOTM9WytCbV0XMUGMuaR3gazIBeX07LUs4A+n4zIGSZYmP76fv7PkUQey7oNVLkFtMnmHsSUVeTjbeQrfGSozvMoHXyEy+ecWf8CgYA3OR4uy8VyeJRbEX5GO8Iet3W1UwnkyXCaR1isazr104HIO7LlOv8cOWhQKMTFcClrPxCKXCUZqOO/0SUFvqja8gUZDDlq1WMFt9aFkPTi9xYQBOxhJv2qbD4f/q9WYUJ/NKELeqYz5ArMfzxsSzypWbp0/v/EPNpszrZnb5U1dQKBgQCvyB/OibxdnjFonzhxnQEzCil1xYcbhwxDNEuKYj6v21G37mA5VKs1zfF58P0XiVmLgr9Kz5V8vlnDzVNRZtpPBV9/ONOOdxAT6mtawjLudj4Vj9BhRQJYmMupLzvpRs7ceuXDYbEV+y0aPVUZ0uE7AjesC3xNCpthQn62YLrrEwKBgHLSZXVVLxajhj4gdCJmci4CK/gTDfDhzrlCz85EgC2vEuxLlHm0BKVLxoEgJNif18XNFn6CpMd0DQgFhqlKg8DFyEa4Mr7sYk4C/X86atoPh00j9YwbwT1NL8XD3TZ4JyCht7yx9dFW0tGwWVj004RRz+wljjZyy96mSP8q+Ryp
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 210
+      max-wait-millis: 30000
+
+kafka:
+  bootstrap-servers: 10.5.2.201:9092
+  consumer:
+    group-id: test-consumer-m
+    auto-offset-reset: earliest
+    enable-auto-commit: true
+    auto-commit-interval: 60
+    key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    session-timeout-ms-config: 15000
